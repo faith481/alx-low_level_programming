@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc app.c -o c_is_fun
+gcc app.c -o cisfun
