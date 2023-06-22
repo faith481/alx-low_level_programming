@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * largest_number - returns the largest of 3 numbers
  * @a: first integer
@@ -14,11 +15,11 @@ if (a > b && a > c)
 {
 	largest = a;
 }
-elseif (a > b && c > a)
+elseif(a > b && c > a)
 {
-	largest =c;
+	largest = c;
 }
-elseif (b > c);
+elseif(b > c);
 {
 	largest = b;
 }
