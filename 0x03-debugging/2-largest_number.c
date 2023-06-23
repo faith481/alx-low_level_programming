@@ -15,11 +15,11 @@ if (a > b && a > c)
 {
 	largest = a;
 }
-elseif(a > b && c > a)
+else if(a > b && c > a)
 {
 	largest = c;
 }
-elseif(b > c);
+else if(b > c);
 {
 	largest = b;
 }
