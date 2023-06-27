@@ -20,8 +20,8 @@ void print_rev(char *s)
 	s--;
 	for (0 = longi; 0 > 0; 0--)
 	{
-	_putchar(*s)
+	_putchar(*s);
 	s--;
 	}
-	_putchar('\n')
+	_putchar('\n');
 }
