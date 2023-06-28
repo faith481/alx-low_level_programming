@@ -2,14 +2,14 @@
 #include <stdio.h>
 
 /**
- * main - prints a Fizz Buzz program
- * return: Always 0 (success)
+ * main - Prints a Fizz Buzz program
+ * Return: Always 0 (success)
  */
 
 int main(void)
 
 {
-	int x
+	int x;
 
 	for (x = 1; x <= 100; x++)
 	{
