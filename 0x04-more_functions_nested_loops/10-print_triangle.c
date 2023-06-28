@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_triangle - prints a triangle of squares according to parameter
+ * print_triangle - prints a triangle of squares according parameter
  * @size: the size of the squares triangle
  * Return: empty
  */
@@ -12,7 +12,7 @@ void print_triangle(int size)
 
 	if (size <= 0)
 	{
-	_putchar("\n");
+	_putchar('\n');
 	}
 	else
 	{
