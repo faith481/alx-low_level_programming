@@ -2,13 +2,13 @@
 #include "main.h"
 
 /**
- * main- Prints a fizz buzz program
+ * main - Prints a fizz buzz program
  * Return: Always 0 (success)
  */
 
 int main(void)
 {
-	int x;
+	int x
 
 	for (x = 1; x <= 100; x++)
 	{
@@ -33,6 +33,6 @@ int main(void)
 	printf("");
 	}
 	}
-	printf("\n");
+	printf('\n');
 	return (0);
 }
