@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * main - Prints a fizz buzz program
+ * main- Prints a fizz buzz program
  * Return: Always 0 (success)
  */
 
