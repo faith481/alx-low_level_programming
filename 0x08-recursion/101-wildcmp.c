@@ -4,7 +4,7 @@
  *  wildcmp - compare two strings
  *  @s1: pointer to string parameter
  *  @s2: pointer to string parameter
- *  Return: Always 0 (sucess)
+ *  Return: 0
  */
 
 int wildcmp(char *s1, char *s2)
