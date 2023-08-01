@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index - returns the node at a certain index in a listint_t list
+ * get_nodeint_at_index - returns the node at a certain index
+ * in a listint_t list
  * @head: first node in the listint_t
  * @index: index of the node to return
  * Return: pointer to the node we are searching for, or NULL
