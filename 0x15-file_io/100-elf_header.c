@@ -48,13 +48,13 @@ void print_magic(unsigned char *e_ident)
 	int index;
 
 	printf("Magic:");
-	for (index = 0; index < EI_NIDENT, index++)
+	for (index = 0; index < EI_NIDENT; index++)
 	{
 	printf("%02x", e_ident[index]);
 	if (index == EI_NIDENT - 1)
 	printf("\n");
 	else
-	printf("");
+	printf(" ");
 	}
 }
 
@@ -191,10 +191,10 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	e_type >>= 8;
 	printf("Type:");
-	switch (e_type);
+	switch (e_type)
 	{
 	case ET_NONE:
-	printf("NONE (none)\n");
+	printf("NONE(none)\n");
 	break;
 	case ET_REL:
 	printf("REl(Relocatable file)\n");
