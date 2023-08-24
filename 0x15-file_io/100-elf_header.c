@@ -23,10 +23,12 @@ void close_elf(int elf);
  * Description: if the file is not an ELF file exit code 98
  */
 
-void check_elf(unsigned char *e_ident) {
+void check_elf(unsigned char *e_ident)
+{
 	int i;
 
-	for (i = 0; i < 4; i++) {
+	for (i = 0; i < 4; i++)
+	{
 	if (e_ident[i] != 127 &&
 	e_ident[i] != 'E' &&
 	e_ident[i] != 'L' &&
