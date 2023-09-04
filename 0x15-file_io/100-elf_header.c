@@ -51,7 +51,11 @@ void print_magic(unsigned char *e_ident)
 	{
 	printf("%02x", e_ident[i]);
 	}
+	if (i == EI_NIDENT - 1)
 	printf("\n");
+	else
+	printf(" ");
+	}
 }
 
 /**
@@ -134,6 +138,21 @@ void print_osabi(unsigned char *e_ident)
 		break;
 	case 5:
 		printf("FreeBSD\n");
+		break;
+	case 6:
+		printf("IRIX\n");
+		break;
+	case 7:
+		printf("FreeBSD\n");
+		break;
+	case 8:
+		printf("TRU64\n");
+		break;
+	case 9:
+		printf("ARM\n");
+		break;
+	case 10:
+		printf("StandaloneApp\n");
 		break;
 	default:
 		printf("Unknown\n");
