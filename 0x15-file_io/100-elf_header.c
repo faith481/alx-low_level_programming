@@ -139,21 +139,6 @@ void print_osabi(unsigned char *e_ident)
 	case 5:
 		printf("FreeBSD\n");
 		break;
-	case 6:
-		printf("IRIX\n");
-		break;
-	case 7:
-		printf("FreeBSD\n");
-		break;
-	case 8:
-		printf("TRU64\n");
-		break;
-	case 9:
-		printf("ARM\n");
-		break;
-	case 10:
-		printf("StandaloneApp\n");
-		break;
 	default:
 		printf("Unknown\n");
 		break;
