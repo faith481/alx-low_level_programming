@@ -46,10 +46,10 @@ void close_file(int fd)
  * @argc: the number of arguments supplied to the program
  * @argv: an array of pointers to the arguments
  * Return: 0 on success
- * Description: if the argument count is incorrect exit code 97
- * if file_from does not exist or cannot be read exit code 98
- * if file_to cannot be created or written to exit code 99
- * if file_to or file_from cannot be closed exit code 100
+ * Description: if the argument count is incorrect - exit code 97
+ * if file_from does not exist or cannot be read - exit code 98
+ * if file_to cannot be created or written to - exit code 99
+ * if file_to or file_from cannot be closed - exit code 100
  */
 
 int main(int argc, char *argv[])
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-	dprintf(STDERR_FILENO, "Usage: Cp file_from file_to\n");
+	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 	exit(97);
 	}
 	buffer = create_buffer(argv[2]);
