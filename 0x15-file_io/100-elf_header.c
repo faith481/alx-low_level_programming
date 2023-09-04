@@ -27,7 +27,12 @@ void check_elf(unsigned char *ptr)
 	char E = ptr[1];
 	char L = ptr[2];
 	char F = ptr[3];
+
 	if (e_ident == 127 && E == 'E' && L == 'L' && F == 'F')
+	{
+	dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
+	exit(98);
+	}
 }
 
 /**
