@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 
+void check_elf(unsigned char *ptr);
 void print_magic(unsigned char *e_ident);
 void print_class(unsigned char *e_ident);
 void print_data(unsigned char *e_ident);
