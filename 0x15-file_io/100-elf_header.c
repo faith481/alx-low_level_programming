@@ -18,6 +18,26 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
+ * check_elf - checks if a file is an ELF file
+ * @e_ident: a pointer to an array containing the ELF magic numbers
+ * Description: if the file is not an ELF file exit code 98
+ */
+
+void check_elf(unsigned char *e_ident)
+{
+	int i;
+
+	for (i = 0; i < 4; i++)
+	{
+	if (e_ident[i] != 127 || e_ident[i] != 'E' || e_ident[i] != 'L' || e_ident[i] != 'F')
+	{
+		dprintf(STDERR_FILE_NO, "Error: Not an ELF file\n");
+	exit(98);
+	}
+	}
+}
+
+/**
  * print_magic - prints the magic numbers of an ELF header
  * @e_ident: a pointer to an array containing the ELF magic numbers
  * Description: magic numbers are seperated by spaces
@@ -186,7 +206,18 @@ void close_elf(int elf)
 	exit(98);
 	}
 }
-	int main (int argc, char *argv[])
+
+/**
+ * main - displays the information contained in the
+ * ELF header at the start of an ELF file
+ * @argc: the number of arguments supplied to the program
+ * @argv: an array of pointers to the arguments
+ * Return: 0 on success
+ * Description: if the file is not an ELF file or
+ * the function fails exit code 98
+ */
+
+int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
