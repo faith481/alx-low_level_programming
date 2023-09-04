@@ -18,7 +18,7 @@ char *create_buffer(char *file)
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 	{
-	dprintf(SRDERR_FILENO, "Error: Can't write to %s\n", file);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
 	exit(99);
 	}
 	return (buffer);
@@ -55,7 +55,7 @@ void close_file(int fd)
 int main(int argc, char *argv[])
 {
 	int from, to, r, w;
-	char buffer;
+	char *buffer;
 
 	if (argc != 3)
 	{
