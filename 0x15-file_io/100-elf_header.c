@@ -31,7 +31,7 @@ void check_elf(unsigned char *e_ident)
 	{
 	if (e_ident[i] != 127 || e_ident[i] != 'E' || e_ident[i] != 'L' || e_ident[i] != 'F')
 	{
-		dprintf(STDERR_FILE_NO, "Error: Not an ELF file\n");
+		dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 	exit(98);
 	}
 	}
@@ -48,9 +48,9 @@ void print_magic(unsigned char *e_ident)
 	int i;
 
 	printf("Magic: ");
-	for (i = 0; i < sizeof(header.e_ident; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 	{
-	printf("%02x", header.e_ident[i]);
+	printf("%02x", e_ident[i]);
 	}
 	printf("\n");
 }
@@ -63,7 +63,7 @@ void print_magic(unsigned char *e_ident)
 void print_class(unsigned char *e_ident)
 {
 	printf("Class: ");
-	switch (header.e_ident[EI_CLASS])
+	switch (e_ident[EI_CLASS])
 	{
 	case 1:
 	printf("ELF32\n");
@@ -84,7 +84,7 @@ void print_class(unsigned char *e_ident)
 void print_data(unsigned char *e_ident)
 {
 	printf("Data: ");
-	switch (header.e_ident[EI_DATA])
+	switch (e_ident[EI_DATA])
 	{
 	case 1:
 		printf("2's complement, little endian\n");
@@ -105,7 +105,7 @@ void print_data(unsigned char *e_ident)
 
 void print_version(unsigned char *e_ident)
 {
-	printf("Version: %d(current)\n", header.e_ident[EI_VERSION]);
+	printf("Version: %d(current)\n", e_ident[EI_VERSION]);
 }
 
 /**
@@ -116,7 +116,7 @@ void print_version(unsigned char *e_ident)
 void print_osabi(unsigned char *e_ident)
 {
 	printf("OS/ABI: ");
-	switch (header.e_ident[EI_OSABI])
+	switch (e_ident[EI_OSABI])
 	{
 	case 0:
 		printf("UNIX - System V\n");
@@ -149,7 +149,7 @@ void print_osabi(unsigned char *e_ident)
 
 void print_abi(unsigned char *e_ident)
 {
-	printf("ABI Version: %d\n", header.e_ident[EI_ABIVERSION]);
+	printf("ABI Version: %d\n", e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -161,7 +161,7 @@ void print_abi(unsigned char *e_ident)
 void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	printf("Type: ");
-	switch (header.e_type)
+	switch (e_type)
 	{
 	case 1:
 		printf("REL(Relocatable file)\n");
@@ -189,7 +189,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
-	printf("Entry point address: 0x%lx\n", header.e_entry);
+	printf("Entry point address: 0x%lx\n", e_entry);
 }
 
 /**
