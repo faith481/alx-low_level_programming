@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void check_elf(unsigned char *e_ident);
+int check_elf(char *ptr);
 void print_magic(unsigned char *e_ident);
 void print_class(unsigned char *e_ident);
 void print_data(unsigned char *e_ident);
@@ -19,24 +19,20 @@ void close_elf(int elf);
 
 /**
  * check_elf - checks if a file is an ELF file
- * @e_ident: a pointer to an array containing the ELF magic numbers
- * Description: if the file is not an ELF file exit code 98
+ * @ptr: a pointer to an array containing the ELF magic numbers
+ * Return: 1 if it is an ELF file, 0 if not
  */
 
-void check_elf(unsigned char *e_ident)
+int check_elf(char *ptr)
 {
-	int i;
-
-	for (i = 0; i < 4; i++)
-	{
-	if (e_ident[i] != 127 || e_ident[i] != 'E' || e_ident[i] != 'L' || e_ident[i] != 'F')
-	{
-		dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
-	exit(98);
-	}
-	}
+	int addr = (int)ptr[0];
+	char E = ptr[1];
+	char L = ptr[2];
+	char F = ptr[3];
+	if (addr == 127 && E == 'E' && L == 'L' && F == 'F')
+	return (1);
+	return (0);
 }
-
 /**
  * print_magic - prints the magic numbers of an ELF header
  * @e_ident: a pointer to an array containing the ELF magic numbers
