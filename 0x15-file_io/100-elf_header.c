@@ -88,15 +88,17 @@ void print_data(unsigned char *e_ident)
 	printf("Data: ");
 	switch (e_ident[EI_DATA])
 	{
-	case 1:
+	case ELFDATANONE:
+		printf("none\n");
+		break;
+	case ELFDATA2LSB:
 		printf("2's complement, little endian\n");
 		break;
-	case 2:
+	case ELFDATA2MSB:
 		printf("2's complement, big endian\n");
 		break;
 	default:
-		printf("Unknown\n");
-		break;
+		printf("<Unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
 
@@ -128,26 +130,38 @@ void print_osabi(unsigned char *e_ident)
 	printf("OS/ABI: ");
 	switch (e_ident[EI_OSABI])
 	{
-	case 0:
+	case ELFOSABI_NONE:
 		printf("UNIX - System V\n");
 		break;
-	case 1:
+	case ELFOSABI_HPUX:
 		printf("HP - UX\n");
 		break;
-	case 2:
+	case ELFOSABI_NETBSD:
 		printf("NetBSD\n");
 		break;
-	case 3:
+	case ELFOSABI_LINUX:
 		printf("Linux\n");
 		break;
-	case 4:
-		printf("Sun Solaris\n");
+	case ELFOSABI_SOLARIS:
+		printf("UNIX - Solaris\n");
 		break;
-	case 5:
+	case ELFOSABI_IRIX:
+		printf("UNIX - IRIX\n");
+		break;
+	case ELFOSABI_FREEBSD:
 		printf("FreeBSD\n");
 		break;
+	case ELFOSABI_TRU64:
+		printf("UNIX - TRU64\n");
+		break;
+	case ELFOSABI_ARM:
+		printf("ARM\n");
+		break;
+	case ELFOSABI_STANDALONE:
+		printf("Standalone App\n");
+		break;
 	default:
-		printf("Unknown\n");
+		printf("<Unknown: %x>\n", e_ident[EI_OSABI]);
 		break;
 	}
 }
