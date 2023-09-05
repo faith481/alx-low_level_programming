@@ -44,14 +44,14 @@ void check_elf(unsigned char *ptr)
 
 void print_magic(unsigned char *e_ident)
 {
-	int i;
+	int index;
 
 	printf("Magic: ");
-	for (i = 0; i < EI_NIDENT; i++)
+	for (index = 0; index < EI_NIDENT; index++)
 	{
-	printf("%02x", e_ident[i]);
+	printf("%02x", e_ident[index]);
 	}
-	if (i == EI_NIDENT - 1)
+	if (index == EI_NIDENT - 1)
 	printf("\n");
 	else
 	printf(" ");
