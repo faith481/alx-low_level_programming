@@ -67,14 +67,17 @@ void print_class(unsigned char *e_ident)
 	printf("Class: ");
 	switch (e_ident[EI_CLASS])
 	{
-	case 1:
-	printf("ELF32\n");
-	break;
-	case 2:
-	printf("Elf64\n");
-	break;
+	case ELFCLASSNONE:
+		printf("none\n");
+		break;
+	case ELFCLASS32:
+		printf("ELF32\n");
+		break;
+	case ELFCLASS64:
+		printf("Elf64\n");
+		break;
 	default:
-	printf("Unknown\n");
+	printf("<Unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
 
@@ -189,21 +192,23 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	printf("Type: ");
 	switch (e_type)
 	{
-	case 1:
+	case ET_NONE:
+		printf("NONE(None)\n");
+		break;
+	case ET_REL:
 		printf("REL(Relocatable file)\n");
 		break;
-	case 2:
+	case ET_EXEC:
 		printf("EXEC(Executable file)\n");
 		break;
-	case 3:
+	case ET_DYN:
 		printf("DYN(Shared object file)\n");
 		break;
-	case 4:
+	case ET_CORE:
 		printf("CORE(core file)\n");
 		break;
 	default:
-		printf("Unknown\n");
-		break;
+		printf("<Unknown: %x>\n", e_type);
 	}
 }
 
@@ -215,13 +220,16 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
+	printf("Entry point address: ");
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 	e_entry = ((e_entry << 8) & 0xFF00FF00) | ((e_entry >> 8) & 0xFF00FF);
 	e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 	if (e_ident[EI_CLASS] == ELFCLASS32)
-	printf("Entry point address: 0x%lx\n", e_entry);
+	printf("%#x\n", (unsigned iny)e_entry);
+	else
+		printf("%#lx\n", e_entry);
 }
 
 /**
