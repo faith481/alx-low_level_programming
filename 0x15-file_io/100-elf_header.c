@@ -107,9 +107,17 @@ void print_data(unsigned char *e_ident)
 
 void print_version(unsigned char *e_ident)
 {
-	printf("Version: %d(current)\n", e_ident[EI_VERSION]);
+	printf("Version: %d", e_ident[EI_VERSION]);
+	switch (e_ident[EI_VERSION])
+	{
+	case EV_CURRENT:
+		printf("current)\n");
+		break;
+	default:
+		printf("\n");
+		break;
+	}
 }
-
 /**
  * print_osabi - prints the OS/ABI of an ELF header
  * @e_ident: a pointer to an array containing the ELF version
