@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "main.h"
+#define stopVar 100
 
 /**
  * main - Prints a fizz buzz program
