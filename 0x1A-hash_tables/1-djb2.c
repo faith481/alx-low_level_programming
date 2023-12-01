@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 /**
- * hash_djb2.c - A hash function that implements djb2.c algorithm
+ * hash_djb2 - A hash function that implements djb2 algorithm
  * @str: string used to generate hash variable
  * Return: hash variable
  */
